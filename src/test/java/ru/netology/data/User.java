@@ -20,4 +20,18 @@ public class User {
             return new DataHelper.VerificationCodePage((String) verificationCode);
         }
     }
+
+    @SneakyThrows
+    public static void cleanData() {
+        var authCodesClean = "DELETE FROM auth_codes";
+        var cardsClean = "DELETE FROM cards";
+        var usersClean = "DELETE FROM users";
+        var runner = new QueryRunner();
+
+        try (var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/scr_mysql", "scriper", "123")) {
+            runner.update(conn, authCodesClean);
+            runner.update(conn, cardsClean);
+            runner.update(conn, usersClean);
+        }
+    }
 }

@@ -1,6 +1,7 @@
 package ru.netology.test;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterAll;
 import ru.netology.data.DataHelper;
 import ru.netology.data.User;
 import ru.netology.page.LoginPage;
@@ -8,6 +9,11 @@ import ru.netology.page.LoginPage;
 import static com.codeborne.selenide.Selenide.open;
 
 public class LoginPageTest {
+
+    @AfterAll
+    static void cleanData() {
+        User.cleanData();
+    }
 
     @Test
     void shouldAuthorizeSuccessfully_User1() {
