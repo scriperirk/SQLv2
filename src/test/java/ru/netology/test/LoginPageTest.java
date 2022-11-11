@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class LoginPageTest {
 
     @Test
-    void shouldAuthorizeSuccessfully_1stUser() {
+    void shouldAuthorizeSuccessfully_User1() {
         var loginPage = open("http://localhost:9999", LoginPage.class);
         var authInfo = DataHelper.getValidAuthInfo_User1();
         var verificationPage = loginPage.validAuthInfo(authInfo);
@@ -20,7 +20,7 @@ public class LoginPageTest {
     }
 
     @Test
-    void shouldAuthorizeSuccessfully_2ndUser() {
+    void shouldAuthorizeSuccessfully_User2() {
         var loginPage = open("http://localhost:9999", LoginPage.class);
         var authInfo = DataHelper.getValidAuthInfo_User2();
         var verificationPage = loginPage.validAuthInfo(authInfo);
@@ -36,42 +36,42 @@ public class LoginPageTest {
     }
 
     @Test
-    void shouldNotValidateWithEmptyPassword_1stUser() {
+    void shouldNotValidateWithEmptyPassword_User1() {
         var loginPage = open("http://localhost:9999", LoginPage.class);
         var authInfo = DataHelper.getValidLoginAndEmptyPassword_User1();
         loginPage.validLoginAndEmptyPassword(authInfo);
     }
 
     @Test
-    void shouldNotValidateWithEmptyPassword_2ndUser() {
+    void shouldNotValidateWithEmptyPassword_User2() {
         var loginPage = open("http://localhost:9999", LoginPage.class);
         var authInfo = DataHelper.getValidLoginAndEmptyPassword_User2();
         loginPage.validLoginAndEmptyPassword(authInfo);
     }
 
     @Test
-    void shouldNotAuthorizeWithInvalidPassword_1stUser() {
+    void shouldNotAuthorizeWithInvalidPassword_User1() {
         var loginPage = open("http://localhost:9999", LoginPage.class);
         var authInfo = DataHelper.getValidLoginAndInvalidPassword_User1();
         loginPage.invalidAuthInfo(authInfo);
     }
 
     @Test
-    void shouldNotAuthorizeWithInvalidPassword_2ndUser() {
+    void shouldNotAuthorizeWithInvalidPassword_User2() {
         var loginPage = open("http://localhost:9999", LoginPage.class);
         var authInfo = DataHelper.getValidLoginAndInvalidPassword_User2();
         loginPage.invalidAuthInfo(authInfo);
     }
 
     @Test
-    void shouldNotAuthorizeWithInvalidLogin_1stUser() {
+    void shouldNotAuthorizeWithInvalidLogin_User1() {
         var loginPage = open("http://localhost:9999", LoginPage.class);
         var authInfo = DataHelper.getInvalidLoginAndValidPassword_User1();
         loginPage.invalidAuthInfo(authInfo);
     }
 
     @Test
-    void shouldNotAuthorizeWithInvalidLogin_2ndUser() {
+    void shouldNotAuthorizeWithInvalidLogin_User2() {
         var loginPage = open("http://localhost:9999", LoginPage.class);
         var authInfo = DataHelper.getInvalidLoginAndValidPassword_User2();
         loginPage.invalidAuthInfo(authInfo);
