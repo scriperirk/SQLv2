@@ -15,7 +15,7 @@ public class User {
         var authCode = "SELECT code FROM auth_codes ORDER BY created DESC LIMIT 1";
         var runner = new QueryRunner();
 
-        try (var conn = DriverManager.getConnection("jdbc:mysql://localhost/scr_mysql", "scriper", "123")) {
+        try (var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/scr_mysql", "scriper", "123")) {
             var verificationCode = runner.query(conn, authCode, new ScalarHandler<>());
             return new DataHelper.VerificationCodePage((String) verificationCode);
         }
