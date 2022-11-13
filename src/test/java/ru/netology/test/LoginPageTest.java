@@ -100,6 +100,7 @@ public class LoginPageTest {
         verificationPage.invalidCode(verifyInfo);
     }
 
+    //ТЕСТ провальный т.к. проверка не проходит
     @Test
     void shouldBlockAfterThreeAttemptsWithInvalidPassword() {
         var loginPage = open("http://localhost:9999", LoginPage.class);
